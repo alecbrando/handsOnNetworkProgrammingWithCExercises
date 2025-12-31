@@ -92,6 +92,7 @@ int main() {
             }
         }
     }
+
     close(listen_socket);
 
     return 0;
@@ -101,7 +102,7 @@ int main() {
 int addressClient(int* socket_client, struct sockaddr_storage* client_address, socklen_t client_len, connected_sockets clients[]){
     char address_buffer[100];
     getnameinfo((struct sockaddr*)client_address, client_len, address_buffer, sizeof(address_buffer), 0, 0, NI_NUMERICHOST);
-    printf("New client connected (Client #%s)", address_buffer);
+    printf("New client connected (Client #%s)\n", address_buffer);
     char request[1024];
     int bytes_received = recv(*socket_client, request, 1024, 0);
     int bytes_sent = send(*socket_client, request, strlen(request), 0);
