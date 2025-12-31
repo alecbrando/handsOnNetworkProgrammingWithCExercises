@@ -79,5 +79,7 @@ int main() {
     bytes_sent = send(socket_client, time_msg, strlen(time_msg), 0);
     printf("Sent %d of %d bytes.\n", bytes_sent, (int)strlen(time_msg));
     CLOSESOCKET(socket_client);
+    CLOSESOCKET(socket_listen);
+    printf("Finished.\n");
     return 0;
 }
